@@ -12,7 +12,7 @@ import javax.swing.JColorChooser
 import javax.swing.JTabbedPane
 
 class MainPanel(private val model: AppModel, private val controller: AppController) : JPanel(BorderLayout()) {
-    private val label = JLabel("Featuring ardwloop " + model.version, JLabel.CENTER)
+    val label = JLabel("Featuring ardwloop " + model.version, JLabel.CENTER)
     private val startButton = JButton("Start")
     private val toggleLedButton = JButton("Toggle built-in LED")
     private val colorChooser = JColorChooser(background).apply {
@@ -54,13 +54,15 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
 }
 
 class AppView(private val model: AppModel, private val controller: AppController) {
+
+    val panel = MainPanel(model, controller)
+
     fun show() {
 
         SwingUtilities.invokeLater {
             val frame = JFrame("rgb-ribbon demo ")
             frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
             frame.setSize(600, 500) // Changed width to 600, height remains 500
-            val panel = MainPanel(model, controller)
             frame.add(panel)
             frame.setLocationRelativeTo(null)
             frame.isVisible = true
@@ -74,6 +76,12 @@ class AppView(private val model: AppModel, private val controller: AppController
                 javax.swing.KeyStroke.getKeyStroke("SPACE"),
                 javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW
             )
+        }
+    }
+
+    fun update() {
+        SwingUtilities.invokeLater {
+            panel.label.text = model.status.name
         }
     }
 }

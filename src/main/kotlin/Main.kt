@@ -6,6 +6,8 @@ fun main() {
     val model = AppModel()
     val controller = AppController(model)
     controller.loadVersion()
+    model.ribbon.addStatusListener(controller::onStatusChanged)
     val view = AppView(model, controller)
+    controller.view = view
     view.show()
 }
