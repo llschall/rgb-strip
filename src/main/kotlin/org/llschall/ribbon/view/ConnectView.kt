@@ -24,6 +24,7 @@ class ConnectView(
 
         slider.addChangeListener {
             model.ribbon.setBrightness(slider.value)
+            model.ribbon.publish()
         }
     }
 }

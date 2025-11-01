@@ -14,7 +14,7 @@ import javax.swing.JTabbedPane
 class MainPanel(private val model: AppModel, private val controller: AppController) : JPanel(BorderLayout()) {
     private val label = JLabel("Featuring ardwloop " + model.version, JLabel.CENTER)
     private val startButton = JButton("Start")
-    private val toggleLedButton = JButton("Toggle build-in LED")
+    private val toggleLedButton = JButton("Toggle built-in LED")
     private val colorChooser = JColorChooser(background).apply {
         previewPanel = JPanel() // Remove the color preview
     }
@@ -28,19 +28,16 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
             val c = colorChooser.color
             background = c // Set the panel background to the chosen color
 
-            model.ribbon.getLed(0).setRed(c.red)
-            model.ribbon.getLed(1).setGreen(c.green)
-            model.ribbon.getLed(2).setBlue(c.blue)
+            model.ribbon.getLed(0).setColor(c)
 
             for (i in 3 until 9) {
-                model.ribbon.getLed(i).let {
-                    it.setRed(c.red)
-                    it.setGreen(c.green)
-                    it.setBlue(c.blue)
-                }
+                model.ribbon.getLed(i).setColor(c)
             }
+            model.ribbon.publish()
         }
-        toggleLedButton.addActionListener { controller.toggleBuiltInLed() }
+        toggleLedButton.addActionListener {
+            controller.toggleBuiltInLed()
+        }
         exitButton.addActionListener { System.exit(0) }
         buttonPanel.add(startButton)
         buttonPanel.add(toggleLedButton)
