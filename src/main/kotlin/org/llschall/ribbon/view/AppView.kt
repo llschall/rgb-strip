@@ -30,7 +30,9 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
             background = c // Set the panel background to the chosen color
 
             for (i in 0 until 9) {
-                model.ribbon.getLed(i).setColor(c)
+                if (model.active.contains(i)) {
+                    model.ribbon.getLed(i).setColor(c)
+                }
             }
             model.ribbon.publish()
         }
