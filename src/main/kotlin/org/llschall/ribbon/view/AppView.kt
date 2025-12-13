@@ -10,6 +10,7 @@ import javax.swing.SwingUtilities
 import java.awt.BorderLayout
 import javax.swing.JColorChooser
 import javax.swing.JTabbedPane
+import kotlin.system.exitProcess
 
 class MainPanel(private val model: AppModel, private val controller: AppController) : JPanel(BorderLayout()) {
     val label = JLabel("Featuring ardwloop " + model.version, JLabel.CENTER)
@@ -28,9 +29,7 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
             val c = colorChooser.color
             background = c // Set the panel background to the chosen color
 
-            model.ribbon.getLed(0).setColor(c)
-
-            for (i in 3 until 9) {
+            for (i in 0 until 9) {
                 model.ribbon.getLed(i).setColor(c)
             }
             model.ribbon.publish()
@@ -38,7 +37,7 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
         toggleLedButton.addActionListener {
             controller.toggleBuiltInLed()
         }
-        exitButton.addActionListener { System.exit(0) }
+        exitButton.addActionListener { exitProcess(0) }
         buttonPanel.add(startButton)
         buttonPanel.add(toggleLedButton)
         buttonPanel.add(exitButton)
