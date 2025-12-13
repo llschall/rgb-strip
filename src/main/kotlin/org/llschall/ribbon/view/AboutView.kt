@@ -3,22 +3,28 @@ package org.llschall.ribbon.view
 import javax.swing.JLabel
 import javax.swing.JPanel
 import java.awt.BorderLayout
+import java.awt.Cursor
+import java.awt.Desktop
+import java.awt.event.MouseAdapter
+import java.awt.event.MouseEvent
+import java.net.URI
+import javax.swing.JOptionPane
 
 class AboutView : JPanel(BorderLayout()) {
     init {
-        val url = "https://github.com/llschall/rgb-ribbon"
-        val label = JLabel("<html>About: RGB Ribbon App<br><a href='" + url + "'>" + url + "</a></html>", JLabel.CENTER)
-        label.cursor = java.awt.Cursor.getPredefinedCursor(java.awt.Cursor.HAND_CURSOR)
+        val url = "https://github.com/llschall/rgb-ribbon-demo"
+        val label = JLabel("<html>About: RGB Ribbon Demo<br><a href='$url'>$url</a></html>", JLabel.CENTER)
+        label.cursor = Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)
         label.toolTipText = url
-        label.addMouseListener(object : java.awt.event.MouseAdapter() {
-            override fun mouseClicked(e: java.awt.event.MouseEvent?) {
-                if (e != null && e.button == java.awt.event.MouseEvent.BUTTON1) {
+        label.addMouseListener(object : MouseAdapter() {
+            override fun mouseClicked(e: MouseEvent?) {
+                if (e != null && e.button == MouseEvent.BUTTON1) {
                     try {
-                        if (java.awt.Desktop.isDesktopSupported() && java.awt.Desktop.getDesktop().isSupported(java.awt.Desktop.Action.BROWSE)) {
-                            java.awt.Desktop.getDesktop().browse(java.net.URI(url))
+                        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(java.awt.Desktop.Action.BROWSE)) {
+                            Desktop.getDesktop().browse(URI(url))
                         }
                     } catch (ex: Exception) {
-                        javax.swing.JOptionPane.showMessageDialog(label, "Could not open browser: " + ex.message)
+                        JOptionPane.showMessageDialog(label, "Could not open browser: " + ex.message)
                     }
                 }
             }
