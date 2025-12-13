@@ -5,7 +5,6 @@ import javax.swing.JLabel
 import javax.swing.JPanel
 import java.awt.BorderLayout
 import javax.swing.JColorChooser
-import javax.swing.Timer
 
 class ConnectView(
     label: JLabel,
@@ -14,12 +13,19 @@ class ConnectView(
 ) : JPanel(BorderLayout()) {
 
     private val slider = javax.swing.JSlider(0, 255, 55)
+    private val brightnessLbl = JLabel("Brightness")
+    private val sliderPnl = JPanel(BorderLayout()).apply {
+        add(brightnessLbl, BorderLayout.NORTH)
+        add(slider, BorderLayout.SOUTH)
+    }
+    private val controlPnl = JPanel(BorderLayout()).apply {
+        add(sliderPnl, BorderLayout.NORTH)
+        add(label, BorderLayout.SOUTH)
+    }
 
     init {
-
-        add(label, BorderLayout.CENTER)
         add(colorChooser, BorderLayout.NORTH)
-        add(slider, BorderLayout.SOUTH)
+        add(controlPnl, BorderLayout.CENTER)
         model.ribbon.setBrightness(slider.value)
 
         slider.addChangeListener {
