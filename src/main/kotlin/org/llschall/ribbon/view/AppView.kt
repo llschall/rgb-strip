@@ -13,7 +13,7 @@ import javax.swing.JTabbedPane
 import kotlin.system.exitProcess
 
 class MainPanel(private val model: AppModel, private val controller: AppController) : JPanel(BorderLayout()) {
-    val label = JLabel("Featuring ardwloop " + model.version, JLabel.CENTER)
+    val label = JLabel("Featuring rgb-ribbon " + model.version, JLabel.CENTER)
     private val startButton = JButton("Start")
     private val toggleLedButton = JButton("Toggle built-in LED")
     private val colorChooser = JColorChooser(background).apply {
