@@ -45,6 +45,8 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
         buttonPanel.add(exitButton)
         // Setup Connect tab
         tabbedPane.addTab("Connect", ConnectView(label, colorChooser, model))
+        tabbedPane.addTab("Effect", EffectView(model))
+
         // Setup About tab
         tabbedPane.addTab("About", AboutView())
         // Add the tabbedPane to the center
