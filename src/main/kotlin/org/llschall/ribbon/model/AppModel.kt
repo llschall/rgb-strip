@@ -1,7 +1,7 @@
 package org.llschall.ribbon.model
 
-import org.llschall.rgbribbon.RgbRibbon
-import org.llschall.rgbribbon.Status
+import org.llschall.rgb.ribbon.RgbRibbon
+import org.llschall.rgb.ribbon.Status
 
 class AppModel {
     var version: String = ""

@@ -1,7 +1,7 @@
 package org.llschall.ribbon.controller
 
-import org.llschall.rgbribbon.RgbRibbon
-import org.llschall.rgbribbon.Status
+import org.llschall.rgb.ribbon.RgbRibbon
+import org.llschall.rgb.ribbon.Status
 import org.llschall.ribbon.model.AppModel
 import org.llschall.ribbon.view.AppView
 
