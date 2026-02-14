@@ -12,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'io.github.llschall:rgb-ribbon:0.0.7'
+    implementation 'io.github.llschall:rgb-ribbon:0.1.4'
     testImplementation 'org.jetbrains.kotlin:kotlin-test'
 }
 
