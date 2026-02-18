@@ -14,11 +14,5 @@ class EffectView(model: AppModel) : JPanel(FlowLayout(FlowLayout.CENTER)) {
             model.ribbon.startEffect()
             model.ribbon.publish()
         }
-        val button = JButton("Stop Effect")
-        add(button)
-        button.addActionListener {
-            model.ribbon.stopEffect()
-            model.ribbon.publish()
-        }
     }
 }
