@@ -22,7 +22,9 @@ Without modifying the code, upload the core_impl example to your Arduino board.
 
 ### Hardware
 
-Connect the Arduino pin 3 to the data pin of the RGB LED strip.
+* Connect the Arduino __pin 3__ to the data pin of the RGB LED strip.
+* Connect the Arduino __GND pin__ to the ground pin of the RGB LED strip.
+* Connect the Arduino __5V pin__ to the power pin of the RGB LED strip.
 
 ## Application Setup (Windows / Linux)
 
