@@ -4,11 +4,13 @@ A lightweight desktop application to control a RGB led strip or ribbon plugged i
 ![screenshot.png](media/screenshot.png)
 ![blue-green.png](media/blue-green.png)
 ![colors.png](media/colors.png)
-Features the [ardwloop](https://github.com/llschall/ardwloop) library.
+Features the [rgbribbon](https://github.com/llschall/rgb-ribbon) library.
 
 # Demo Setup
 
 ## Arduino Setup
+
+### Software
 
 With the PlatformIO extension of VSCode, retrieve the RGBRibbon library:
 
@@ -17,6 +19,10 @@ With the PlatformIO extension of VSCode, retrieve the RGBRibbon library:
 Without modifying the code, upload the core_impl example to your Arduino board.
 
 ![png](media/vscode-example.png)
+
+### Hardware
+
+Connect the Arduino pin 3 to the data pin of the RGB LED strip.
 
 ## Application Setup (Windows / Linux)
 
