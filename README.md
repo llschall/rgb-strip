@@ -29,19 +29,18 @@ git clone https://github.com/llschall/rgb-ribbon-demo;
 
 # Demo onboarding
 
-1) If the application is not already running, start it with the following command:
+1) Make sure your Arduino board is connected to your computer and the core_impl example is uploaded.
+2) If the application is not already running, start it with the following command:
 
 ```
 ./rgb-ribbon/gradlew -p rgb-ribbon-demo run;
 ```
 
-2) Make sure your Arduino board is connected to your computer and the core_impl example is uploaded.
-3) Run the application as described above.
-4) Click the "Start" button to connect to the Arduino board.
+3) Click the "Start" button to connect to the Arduino board.
    ![png](media/onboarding-start.png)
-5) Wait that "CONNECTED" is displayed.
+4) Wait that "CONNECTED" is displayed.
    ![png](media/onboarding-connected.png)
-6) Click the "Toggle" built-in LED button.<br>
+5) Click the "Toggle" built-in LED button.<br>
    Each click switches the Arduino board's built-in LED on or off. This might work even without any plugged LED strip.
    ![png](media/onboarding-toggle.png)
-7) If everything works so far, try the other buttons and watch the LED strip reacting. Enjoy!
+6) If everything works so far, try the other buttons and watch the LED strip reacting. Enjoy!
