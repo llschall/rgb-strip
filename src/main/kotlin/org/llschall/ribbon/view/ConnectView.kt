@@ -1,11 +1,11 @@
 package org.llschall.ribbon.view
 
 import org.llschall.ribbon.model.AppModel
-import javax.swing.JLabel
-import javax.swing.JPanel
 import java.awt.BorderLayout
 import javax.swing.JCheckBox
 import javax.swing.JColorChooser
+import javax.swing.JLabel
+import javax.swing.JPanel
 
 class ConnectView(
     label: JLabel,
@@ -44,10 +44,13 @@ class ConnectView(
     init {
         add(colorChooser, BorderLayout.NORTH)
         add(controlPnl, BorderLayout.CENTER)
+        // Updates the overall brightness of the LED strip.
         model.ribbon.setBrightness(slider.value)
 
         slider.addChangeListener {
+            // Updates the overall brightness of the LED strip.
             model.ribbon.setBrightness(slider.value)
+            // Sends the previously set brightness to the Arduino board.
             model.ribbon.publish()
         }
     }

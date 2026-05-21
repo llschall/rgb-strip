@@ -1,15 +1,15 @@
 package org.llschall.ribbon.view
 
-import org.llschall.ribbon.model.AppModel
 import org.llschall.ribbon.controller.AppController
+import org.llschall.ribbon.model.AppModel
+import java.awt.BorderLayout
 import javax.swing.JButton
+import javax.swing.JColorChooser
 import javax.swing.JFrame
 import javax.swing.JLabel
 import javax.swing.JPanel
-import javax.swing.SwingUtilities
-import java.awt.BorderLayout
-import javax.swing.JColorChooser
 import javax.swing.JTabbedPane
+import javax.swing.SwingUtilities
 import kotlin.system.exitProcess
 
 class MainPanel(private val model: AppModel, private val controller: AppController) : JPanel(BorderLayout()) {
@@ -31,9 +31,11 @@ class MainPanel(private val model: AppModel, private val controller: AppControll
 
             for (i in 0 until 9) {
                 if (model.active.contains(i)) {
+                    // Set the color of the LED strip at position i to the chosen color.
                     model.ribbon.getLed(i).setColor(c)
                 }
             }
+            // Sends all the previous LED color modification to the Arduino board.
             model.ribbon.publish()
         }
         toggleLedButton.addActionListener {
