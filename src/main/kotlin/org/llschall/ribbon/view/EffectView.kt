@@ -11,7 +11,9 @@ class EffectView(model: AppModel) : JPanel(FlowLayout(FlowLayout.CENTER)) {
         val startBtn = JButton("Start Effect")
         add(startBtn)
         startBtn.addActionListener {
+            // Activates the special effect.
             model.ribbon.startEffect()
+            // Sends the previous activation to the Arduino board.
             model.ribbon.publish()
         }
     }

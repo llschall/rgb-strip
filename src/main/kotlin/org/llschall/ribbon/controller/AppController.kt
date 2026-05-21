@@ -14,10 +14,14 @@ class AppController(private val model: AppModel) {
     }
 
     fun start() {
+        // Initiates the communication with the Arduino board.
+        // Will fail if the Arduino board is not connected.
         model.ribbon.start()
     }
 
     fun toggleBuiltInLed() {
+        // Toggles the built-in LED on the Arduino board.
+        // Has no impact on the LED strip.
         model.ribbon.toggleBuiltInLed()
     }
 

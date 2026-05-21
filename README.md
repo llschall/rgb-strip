@@ -1,14 +1,16 @@
 # rgb-ribbon-demo
 
 A lightweight desktop application to control a RGB led strip or ribbon plugged into an Arduino board.
+Features the [rgbribbon](https://github.com/llschall/rgb-ribbon) library.
 ![screenshot.png](media/screenshot.png)
 ![blue-green.png](media/blue-green.png)
 ![colors.png](media/colors.png)
-Features the [ardwloop](https://github.com/llschall/ardwloop) library.
 
 # Demo Setup
 
-## Arduino Setup
+## Arduino board
+
+### Software
 
 With the PlatformIO extension of VSCode, retrieve the RGBRibbon library:
 
@@ -18,7 +20,13 @@ Without modifying the code, upload the core_impl example to your Arduino board.
 
 ![png](media/vscode-example.png)
 
-## Application Setup (Windows / Linux)
+### Hardware
+
+* Connect the Arduino __pin 3__ to the data pin of the RGB LED strip.
+* Connect the Arduino __GND pin__ to the ground pin of the RGB LED strip.
+* Connect the Arduino __5V pin__ to the power pin of the RGB LED strip.
+
+## Application (Windows / Linux)
 
 Run the following from any folder.
 
@@ -29,19 +37,18 @@ git clone https://github.com/llschall/rgb-ribbon-demo;
 
 # Demo onboarding
 
-1) If the application is not already running, start it with the following command:
+1) Make sure your Arduino board is connected to your computer and the core_impl example is uploaded.
+2) If the application is not already running, start it with the following command:
 
 ```
 ./rgb-ribbon/gradlew -p rgb-ribbon-demo run;
 ```
 
-2) Make sure your Arduino board is connected to your computer and the core_impl example is uploaded.
-3) Run the application as described above.
-4) Click the "Start" button to connect to the Arduino board.
+3) Click the __Start__ button to connect to the Arduino board.
    ![png](media/onboarding-start.png)
-5) Wait that "CONNECTED" is displayed.
+4) Wait that __CONNECTED__ is displayed.
    ![png](media/onboarding-connected.png)
-6) Click the "Toggle" built-in LED button.<br>
+5) Click the __Toggle__ built-in LED button.<br>
    Each click switches the Arduino board's built-in LED on or off. This might work even without any plugged LED strip.
    ![png](media/onboarding-toggle.png)
-7) If everything works so far, try the other buttons and watch the LED strip reacting. Enjoy!
+6) If everything works so far, try the other buttons and watch the LED strip reacting. Enjoy!
